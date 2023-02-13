@@ -2,7 +2,6 @@ package be.vinci.utils;
 
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.Response.Status;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,7 +18,7 @@ public class Config {
             props.load(input);
         } catch (IOException e) {
             throw new WebApplicationException(
-                    Response.status(Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).type("text/plain").build());
+                    Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).type("text/plain").build());
         }
     }
 
@@ -34,6 +33,5 @@ public class Config {
     public static boolean getBoolProperty(String key) {
         return Boolean.parseBoolean(props.getProperty(key));
     }
-
 }
 

@@ -1,9 +1,7 @@
 package be.vinci.services;
 
+
 import be.vinci.domain.Film;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.util.List;
@@ -25,7 +23,6 @@ public class FilmDataService {
         return films;
     }
 
-
     public Film getOne(int id) {
         var films = jsonDB.parse(COLLECTION_NAME);
         Film filmFound = films.stream().filter(film -> film.getId() == id).findAny().orElse(null);
@@ -41,7 +38,6 @@ public class FilmDataService {
         jsonDB.serialize(films, COLLECTION_NAME);
         return film;
     }
-
 
     public Film deleteOne(int id) {
         var films = jsonDB.parse(COLLECTION_NAME);

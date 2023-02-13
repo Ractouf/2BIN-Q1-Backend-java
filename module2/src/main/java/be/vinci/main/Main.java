@@ -15,12 +15,10 @@ import java.net.URI;
  */
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    static{
+    static {
         Config.load("dev.properties");
     }
     public static final String BASE_URI = Config.getProperty("BaseUri");
-    final ResourceConfig rc = new ResourceConfig().packages("be.vinci").register(JacksonFeature.class);
-
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -29,7 +27,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in be.vinci package
-        final ResourceConfig rc = new ResourceConfig().packages("be.vinci");
+        final ResourceConfig rc = new ResourceConfig().packages("be.vinci").register(JacksonFeature.class);
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

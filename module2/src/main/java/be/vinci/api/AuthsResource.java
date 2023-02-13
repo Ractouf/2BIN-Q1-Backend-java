@@ -1,5 +1,6 @@
 package be.vinci.api;
 
+
 import be.vinci.services.UserDataService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -11,7 +12,6 @@ import jakarta.ws.rs.core.Response;
 @Singleton
 @Path("/auths")
 public class AuthsResource {
-
     private UserDataService myUserDataService = new UserDataService();
 
     @POST
@@ -35,7 +35,6 @@ public class AuthsResource {
                     .build());
         }
         return publicUser;
-
     }
 
     @POST
@@ -59,9 +58,6 @@ public class AuthsResource {
                     .build());
         }
         return publicUser;
-
     }
-
-}
 }
 

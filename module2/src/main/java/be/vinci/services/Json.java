@@ -27,7 +27,6 @@ public class Json<T> {
         this.type = type;
     }
 
-
     public void serialize(List<T> items, String collectionName) {
         try {
             // if no DB file, write a new collection to a new db file
@@ -72,7 +71,7 @@ public class Json<T> {
             return (List<T>) new ArrayList<T>();
         }
     }
-
 }
+
 
 

@@ -15,12 +15,10 @@ public class UserDataService {
     private final Algorithm jwtAlgorithm = Algorithm.HMAC256(Config.getProperty("JWTSecret"));
     private final ObjectMapper jsonMapper = new ObjectMapper();
 
-
     public List<User> getAll() {
         var items = jsonDB.parse(COLLECTION_NAME);
         return items;
     }
-
 
     public User getOne(int id) {
         var items = jsonDB.parse(COLLECTION_NAME);
@@ -73,7 +71,7 @@ public class UserDataService {
             return null;
         tempUser = new User();
         tempUser.setLogin(login);
-        tempUser.setPassword(password);
+        tempUser.setPassword(tempUser.hashPassword(password));
 
         User user = createOne(tempUser);
         if (user == null)
