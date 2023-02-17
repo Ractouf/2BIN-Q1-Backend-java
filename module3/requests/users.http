@@ -1,0 +1,42 @@
+### Register the default user
+POST {{baseUrl}}/auths/register
+Content-Type: application/json
+
+{
+  "login":"james",
+  "password":"password"
+}
+
+> {%
+client.global.set("jamesToken", response.body.token);
+%}
+
+### Login the default user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "login":"james",
+  "password":"password"
+}
+
+> {%
+client.global.set("jamesToken", response.body.token);
+%}
+
+### Read All users
+GET {{baseUrl}}/users
+Authorization: {{jamesToken}}
+
+### Test the TokenDecoding Exception
+POST {{baseUrl}}/films
+Content-Type: application/json
+Authorization: {{jamesToken}}modifiedtoken
+
+{
+  "title": "Venom: Let There Be Carnage",
+  "duration": 9,
+  "budget": 110,
+  "link": "https://en.wikipedia.org/wiki/Venom:_Let_There_Be_Carnage"
+}
+

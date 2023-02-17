@@ -1,0 +1,53 @@
+### Read All films
+GET {{baseUrl}}/films
+
+### Create one film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+  "title" : "GigaChad : Lets be gucci",
+  "duration" : 900,
+  "budget" : -10,
+  "link" : "https://fr.wikipedia.org/wiki/Prestation_de_serment_des_rois_des_Belges"
+}
+
+### Delete One film
+DELETE {{baseUrl}}/films/5
+Authorization: {{jamesToken}}
+
+### Update One film
+PUT {{baseUrl}}/films/4
+Content-Type: application/json
+Authorization: {{jamesToken}}
+
+{
+  "title": "Venom: Let There Be Carnage",
+  "duration": 97,
+  "budget": 110,
+  "link": "https://en.wikipedia.org/wiki/Venom:_Let_There_Be_Carnage"
+}
+
+### Create One film with dangerous characters
+POST {{baseUrl}}/films
+Content-Type: application/json
+Authorization: {{jamesToken}}
+
+{
+  "title": "<img src=\"#\" onerror=\"alert('You have been hacked !')\">",
+  "duration": 9,
+  "budget": 110,
+  "link": "https://en.wikipedia.org/wiki/Venom:_Let_There_Be_Carnage"
+}
+
+### Test the TokenDecoding Exception
+POST {{baseUrl}}/films
+Content-Type: application/json
+Authorization: {{jamesToken}}modifiedtoken
+
+{
+  "title": "Venom: Let There Be Carnage",
+  "duration": 9,
+  "budget": 110,
+  "link": "https://en.wikipedia.org/wiki/Venom:_Let_There_Be_Carnage"
+}
