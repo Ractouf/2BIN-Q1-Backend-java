@@ -1,42 +1,27 @@
-### Register the default user
+### Register twig
 POST {{baseUrl}}/auths/register
 Content-Type: application/json
 
 {
-  "login":"james",
-  "password":"password"
+  "login":"twig",
+  "password":"twig",
+  "age": 25,
+  "married": true
 }
 
-> {%
-client.global.set("jamesToken", response.body.token);
-%}
-
-### Login the default user
+### Login twig
 POST {{baseUrl}}/auths/login
 Content-Type: application/json
 
 {
-  "login":"james",
-  "password":"password"
+  "login":"twig",
+  "password":"twig"
 }
 
 > {%
-client.global.set("jamesToken", response.body.token);
+    client.global.set("twigToken", response.body.token);
 %}
 
 ### Read All users
 GET {{baseUrl}}/users
-Authorization: {{jamesToken}}
-
-### Test the TokenDecoding Exception
-POST {{baseUrl}}/films
-Content-Type: application/json
-Authorization: {{jamesToken}}modifiedtoken
-
-{
-  "title": "Venom: Let There Be Carnage",
-  "duration": 9,
-  "budget": 110,
-  "link": "https://en.wikipedia.org/wiki/Venom:_Let_There_Be_Carnage"
-}
-
+Authorization: {{twigToken}}

@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
-
     private static Properties props;
 
     public static void load(String file) {
@@ -34,4 +33,3 @@ public class Config {
         return Boolean.parseBoolean(props.getProperty(key));
     }
 }
-

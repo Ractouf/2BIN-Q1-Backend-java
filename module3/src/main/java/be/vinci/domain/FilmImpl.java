@@ -23,47 +23,39 @@ class FilmImpl implements Film {
     public int getId() {
         return id;
     }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
     public String getTitle() {
         return title;
     }
-
-    @Override
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     @Override
     public int getDuration() {
         return duration;
     }
-
-    @Override
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
     @Override
     public long getBudget() {
         return budget;
     }
-
-    @Override
-    public void setBudget(long budget) {
-        this.budget = budget;
-    }
-
     @Override
     public String getLink() {
         return link;
     }
 
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+    @Override
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    @Override
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    @Override
+    public void setBudget(long budget) {
+        this.budget = budget;
+    }
     @Override
     public void setLink(String link) {
         this.link = link;
@@ -90,4 +82,3 @@ class FilmImpl implements Film {
         return id;
     }
 }
-

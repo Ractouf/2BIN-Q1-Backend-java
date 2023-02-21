@@ -72,6 +72,3 @@ public class FilmDataServiceImpl implements FilmDataService {
         return films.get(films.size() - 1).getId() + 1;
     }
 }
-
-
-

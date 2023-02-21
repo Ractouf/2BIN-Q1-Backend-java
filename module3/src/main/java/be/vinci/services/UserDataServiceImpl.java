@@ -22,7 +22,7 @@ public class UserDataServiceImpl implements UserDataService {
     @Override
     public List<User> getAll() {
         var items = jsonDB.parse(COLLECTION_NAME);
-        return items;
+        return jsonDB.filterPublicJsonViewAsList(items);
     }
 
     @Override
@@ -76,15 +76,14 @@ public class UserDataServiceImpl implements UserDataService {
     }
 
     @Override
-    public ObjectNode register(String login, String password) {
-        User tempUser = getOne(login);
-        if (tempUser != null) // the user already exists !
+    public ObjectNode register(User user) {
+        if (getOne(user.getLogin()) != null) // the user already exists !
             return null;
-        tempUser = myDomainFactory.getUser();
-        tempUser.setLogin(login);
-        tempUser.setPassword(tempUser.hashPassword(password));
 
-        User user = createOne(tempUser);
+        user.setPassword(user.hashPassword(user.getPassword()));
+
+        user = createOne(user);
+
         if (user == null)
             return null;
         String token;
@@ -102,6 +101,4 @@ public class UserDataServiceImpl implements UserDataService {
             return null;
         }
     }
-
 }
-

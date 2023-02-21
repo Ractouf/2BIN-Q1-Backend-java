@@ -12,7 +12,16 @@
     {
       "id": 1,
       "login": "james",
-      "password": "$2a$10$9R1n.Xe.cWj3ZUm4UyoU4eEwXQ0YhgNQ0srH.dM3l6nPCPOpjrVpe"
+      "password": "$2a$10$9R1n.Xe.cWj3ZUm4UyoU4eEwXQ0YhgNQ0srH.dM3l6nPCPOpjrVpe",
+      "age": 0,
+      "married": false
+    },
+    {
+      "id": 2,
+      "login": "twig",
+      "password": "$2a$10$/pjQGSHDNCDrtM7JFAypzO1x.0NSxl2JL/ZR4CEf6qoDcDGueQiVa",
+      "age": 25,
+      "married": true
     }
   ]
 }
